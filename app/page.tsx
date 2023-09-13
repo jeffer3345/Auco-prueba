@@ -1,8 +1,6 @@
 import { getPostsService } from "@/shared";
 import PostList from "../components/postList";
 
-export const getInitialProps = () => {};
-
 export default async function Home() {
   const posts = await getPostsService();
 
