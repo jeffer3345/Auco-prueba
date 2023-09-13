@@ -1,6 +1,7 @@
 // pages/index.tsx
+"use client"
 import { useEffect, useState } from 'react';
-import PostList from '../components/PostList';
+import PostList from '../components/postList';
 import axios from 'axios';
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto py-6">
-      <h1 className="text-3xl font-semibold">Post List</h1>
+      <h1 className="text-3xl font-semibold text-center p-4">Post List</h1>
       <PostList posts={posts} />
     </div>
   );

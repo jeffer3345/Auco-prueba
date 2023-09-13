@@ -1,6 +1,8 @@
 // components/PostList.tsx
+"use client"
 import Link from 'next/link';
 import React from 'react';
+import styles from './styles.module.css'
 
 // Define un tipo para 'post'
 type Post = {
@@ -23,7 +25,7 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
         <Link key={post.id} href={`/posts/${post.id}`}>
           <div className="p-4 border border-gray-300 hover:border-blue-500 rounded-md">
             <h2 className="text-lg font-semibold">{post.title}</h2>
-            <p>{post.body}</p>
+            <p className={styles.myStyles}>{post.body}</p>
             <p className="text-gray-600">Author: {post.user?.name}</p>
           </div>
         </Link>
