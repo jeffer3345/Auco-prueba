@@ -1,14 +1,12 @@
-// components/PostDetail.tsx
-import React from 'react';
-import styles from './styles.module.css'
+import React from "react";
+import styles from "./styles.module.css";
+import { PostCommentsType, PostType } from "@/shared";
 
 // Define un tipo para la prop 'post'
-type PostDetailProps = {
-  post: { id: number; title: string; body: string; user: { name: string } };
-  comments: Array<{ id: number; body: string }>;
-};
-
-const PostDetail: React.FC<PostDetailProps> = ({ post, comments }) => {
+const PostDetail: React.FC<{
+  post: PostType;
+  comments: PostCommentsType[];
+}> = ({ post, comments }) => {
   return (
     <div className={styles.myStyles}>
       <h1 className="text-2xl font-semibold text-center p-2">{post.title}</h1>

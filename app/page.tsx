@@ -1,21 +1,14 @@
-// pages/index.tsx
-"use client"
-import { useEffect, useState } from 'react';
-import PostList from '../components/postList';
-import axios from 'axios';
+import { getPostsService } from "@/shared";
+import PostList from "../components/postList";
 
-export default function Home() {
-  const [posts, setPosts] = useState([]);
+export const getInitialProps = () => {};
 
-  useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => {
-        setPosts(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, []);
+export default async function Home() {
+  const posts = await getPostsService();
+
+  if (!posts) {
+    return <p>Not found posts</p>;
+  }
 
   return (
     <div className="container mx-auto py-6">
